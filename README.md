@@ -33,13 +33,13 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-## 環境構築手順
+## パッケージインストール
 
-1. yarn create next-app blog --typescript <!-- Next.JSのアプリケーションを作成する -->
-2. yarn add graphql graphql-request html-react-parser moment react-multi-carousel sass
-3. yarn add -D tailwindcss@latest postcss@latest autoprefixer@latest  
-4. npx tailwindcss init -p
-5. yarn add -D eslint-plugin-tailwindcss
+1. `yarn create next-app blog --typescript` <!-- Next.JSのアプリケーションを作成する -->
+2. `yarn add graphql graphql-request html-react-parser moment react-multi-carousel sass`
+3. `yarn add -D tailwindcss@latest postcss@latest autoprefixer@latest`  
+4. `npx tailwindcss init -p`
+5. `yarn add -D eslint-plugin-tailwindcss`
 6. `./styles/globals.css`に↓を追加
 
    ```css
@@ -48,4 +48,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
       @tailwind utilities;
    ```
 
-7. v
+7. `yarn add @mui/material @emotion/react @emotion/styled`

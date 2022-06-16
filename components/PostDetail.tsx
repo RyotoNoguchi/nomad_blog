@@ -9,7 +9,6 @@ const PostDetail: React.FC<{ post: Post }> = ({ post }) => {
     let modifiedText: string | ReactElement = text;
 
     if (obj) {
-      console.log("obj:", obj);
       if (obj.type === "link") {
         modifiedText = (
           <a

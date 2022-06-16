@@ -9,6 +9,21 @@ const PostDetail: React.FC<{ post: Post }> = ({ post }) => {
     let modifiedText: string | ReactElement = text;
 
     if (obj) {
+      console.log("obj:", obj);
+      if (obj.type === "link") {
+        modifiedText = (
+          <a
+            className="text-blue-600"
+            target="_blank"
+            rel="noreferrer"
+            href={obj.href}
+            key={index}
+            style={{ color: "blue" }}
+          >
+            <span>{obj.children[0].text}</span>
+          </a>
+        );
+      }
       if (obj.bold) {
         modifiedText = <b key={index}>{text}</b>;
       }

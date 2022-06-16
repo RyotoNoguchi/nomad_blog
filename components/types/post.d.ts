@@ -25,9 +25,16 @@ export type TypeObject = {
 
 export type ChildrenObject = {
   text: string
+  type: string
+  href: string
   italic: boolean
   bold: boolean
   underline: boolean
+  children: ObjectChild[]
+}
+
+type ObjectChild = {
+  text: string
 }
 
 type FeaturedImage = {

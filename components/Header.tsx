@@ -17,23 +17,27 @@ const Header: React.FC = () => {
       <div className="flex align-middle justify-center md:justify-between border-b w-full border-blue-400 py-8">
         {matches ? (
           <Link href="/">
-            <Image
-              alt="logo"
-              height={30}
-              width={300}
-              src="/logo_lg.png"
-              className="cursor-pointer"
-            />
+            <a>
+              <Image
+                alt="logo"
+                height={30}
+                width={300}
+                src="/logo_lg.png"
+                className="cursor-pointer"
+              />
+            </a>
           </Link>
         ) : (
           <Link href="/">
-            <Image
-              alt="logo"
-              height={100}
-              width={400}
-              src="/logo.png"
-              className="cursor-pointer"
-            />
+            <a>
+              <Image
+                alt="logo"
+                height={100}
+                width={400}
+                src="/logo.png"
+                className="cursor-pointer"
+              />
+            </a>
           </Link>
         )}
         {matches && (

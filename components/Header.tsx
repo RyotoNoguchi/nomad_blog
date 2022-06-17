@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/link-passhref */
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { getCategories } from "../services";
@@ -16,7 +15,7 @@ const Header: React.FC = () => {
     <div className="container mx-auto px-10 mb-8">
       <div className="flex align-middle justify-center md:justify-between border-b w-full border-blue-400 py-8">
         {matches ? (
-          <Link href="/">
+          <Link href="/" passHref>
             <a>
               <Image
                 alt="logo"
@@ -28,7 +27,7 @@ const Header: React.FC = () => {
             </a>
           </Link>
         ) : (
-          <Link href="/">
+          <Link href="/" passHref>
             <a>
               <Image
                 alt="logo"
@@ -43,10 +42,16 @@ const Header: React.FC = () => {
         {matches && (
           <div className="">
             {categories.map((category) => (
-              <Link key={category.slug} href={`/category/${category.slug}`}>
-                <span className=" align-middle text-white ml-4 font-semibold cursor-pointer">
-                  {category.name}
-                </span>
+              <Link
+                key={category.slug}
+                href={`/category/${category.slug}`}
+                passHref
+              >
+                <a>
+                  <span className=" align-middle text-white ml-4 font-semibold cursor-pointer">
+                    {category.name}
+                  </span>
+                </a>
               </Link>
             ))}
           </div>

@@ -19,7 +19,7 @@ const PostDetail: React.FC<{ post: Post }> = ({ post }) => {
               <ul className="list-disc pl-4">
                 {!listObj.children[index]?.text &&
                   listObj.children[0]?.children.map(
-                    (list: any, index: number) => {
+                    (list, index: number) => {
                       if (list.children[0].children.length === 3) {
                         return (
                           <li key={index}>

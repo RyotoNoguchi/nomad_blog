@@ -35,6 +35,41 @@ export type ChildrenObject = {
 
 type ObjectChild = {
   text: string
+  children: ListObjectChild[]
+}
+
+type ListObjectChild = {
+  text: string
+  children: ListObjectChild2[]
+}
+
+type ListObjectChild2 = {
+  children: ListObjectChild3[]
+  text: string
+}
+
+type ListObjectChild3 = {
+  text: string
+  children: ListObjectChild4[]
+}
+
+type ListObjectChild4 = {
+  href: string
+  text: string
+  children: ListObjectChild5[]
+}
+
+type ListObjectChild5 = {
+  text: string
+  children: ListObjectChild6[]
+}
+
+type ListObjectChild6 = {
+  children: ListObjectChild7[]
+}
+
+type ListObjectChild7 = {
+  text: string
 }
 
 type FeaturedImage = {

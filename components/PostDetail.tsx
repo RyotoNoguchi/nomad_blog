@@ -10,7 +10,7 @@ const PostDetail: React.FC<{ post: Post }> = ({ post }) => {
 
     if (obj) {
       if (obj.type === "list-item" && obj.children.length == 2) {
-        modifiedText = obj.children.map((listObj, index) => {
+        modifiedText = obj?.children?.map((listObj, index) => {
           return (
             <ul className="list-disc ml-6" key={index}>
               {listObj.children[index]?.text && (
@@ -18,28 +18,28 @@ const PostDetail: React.FC<{ post: Post }> = ({ post }) => {
               )}
               <ul className="list-disc pl-4">
                 {!listObj.children[index]?.text &&
-                  listObj.children[0]?.children.map(
+                  listObj?.children[0]?.children?.map(
                     (list, index: number) => {
-                      if (list.children[0].children.length === 3) {
+                      if (list?.children[0]?.children.length === 3) {
                         return (
                           <li key={index}>
                             <a
                               className="text-blue-600"
                               target="_blank"
                               rel="noreferrer"
-                              href={list.children[0].children[1]?.href}
+                              href={list?.children[0]?.children[1]?.href}
                             >
-                              {list.children[0].children[1]?.children[0]?.text}
+                              {list?.children[0]?.children[1]?.children[0]?.text}
                             </a>
                             <ul>
-                              <li>{list.children[1].children[0].children[0].children[0].children[0].text}</li>
+                              <li>{list?.children[1]?.children[0]?.children[0]?.children[0]?.children[0].text}</li>
                             </ul>
                           </li>
                         );
                       } else {
                         return (
                           <li key={index}>
-                            {list.children[0].children[0].text}
+                            {list?.children[0].children[0].text}
                           </li>
                         );
                       }

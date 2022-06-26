@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement } from "react";
 import { Post } from "../components/types/post";
 import { TypeObject, ChildrenObject } from "../components/types/post";
 import Image from "next/image";
@@ -6,7 +6,51 @@ import moment from "moment";
 
 const PostDetail: React.FC<{ post: Post }> = ({ post }) => {
   const getTextObject = (index: number, text: string, obj: ChildrenObject) => {
-    let modifiedText: string | ReactElement = text;
+    let modifiedText: string | ReactElement | ReactElement[] = text;
+
+    if (obj) {
+      if (obj.type === "list-item" && obj.children.length == 2) {
+        modifiedText = obj.children.map((listObj, index) => {
+          return (
+            <ul className="list-disc ml-6" key={index}>
+              {listObj.children[index]?.text && (
+                <li>{listObj.children[index]?.text}</li>
+              )}
+              <ul className="list-disc pl-4">
+                {!listObj.children[index]?.text &&
+                  listObj.children[0]?.children.map(
+                    (list: any, index: number) => {
+                      if (list.children[0].children.length === 3) {
+                        return (
+                          <li key={index}>
+                            <a
+                              className="text-blue-600"
+                              target="_blank"
+                              rel="noreferrer"
+                              href={list.children[0].children[1]?.href}
+                            >
+                              {list.children[0].children[1]?.children[0]?.text}
+                            </a>
+                            <ul>
+                              <li>{list.children[1].children[0].children[0].children[0].children[0].text}</li>
+                            </ul>
+                          </li>
+                        );
+                      } else {
+                        return (
+                          <li key={index}>
+                            {list.children[0].children[0].text}
+                          </li>
+                        );
+                      }
+                    }
+                  )}
+              </ul>
+            </ul>
+          );
+        });
+      }
+    }
 
     if (obj) {
       if (obj.type === "link") {
@@ -17,7 +61,6 @@ const PostDetail: React.FC<{ post: Post }> = ({ post }) => {
             rel="noreferrer"
             href={obj.href}
             key={index}
-            style={{ color: "blue" }}
           >
             <span>{obj.children[0].text}</span>
           </a>
